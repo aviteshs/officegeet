@@ -1,0 +1,23 @@
+name: My First CI Pipeline
+
+# Trigger: Code push hote hi ye chalega
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: GitHub se code uthana (Checkout)
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Python setup karna
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      # Step 3: Hamara test run karna
+      - name: Run Hello DevOps Test
+        run: python app.py
